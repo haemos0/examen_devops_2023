@@ -18,8 +18,13 @@ describe("validations tests suites - isEmpty", () => {
 });
 
 describe("validations tests suites - checkGamerTag", () => {
-    test("should return false as the gametag is 8 char or more", () => {
+    test("should return true as the gametag is equals or more than 8 char", () => {
         const result = checkGamerTag("aaaaaaaaa");
+        expect(result).toBe(true);
+    });
+
+    test("should return false as the gametag is less than 8 char", () => {
+        const result = checkGamerTag("aaaaaaa");
         expect(result).toBe(false);
     });
 });
