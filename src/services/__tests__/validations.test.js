@@ -1,4 +1,4 @@
-const { isEmpty } = require("../validations");
+const { isEmpty, checkGamerTag } = require("../validations");
 
 describe("validations tests suites - isEmpty", () => {
     test("should return true as the label is undefined", () => {
@@ -17,4 +17,34 @@ describe("validations tests suites - isEmpty", () => {
     });
 });
 
-// TODO: Create tests suite for validation function
+describe("validations tests suites - checkGamerTag", () => {
+    test("should return true as the gametag is equals or more than 8 char", () => {
+        const result = checkGamerTag("aaaaaaaaa2!");
+        expect(result).toBe(true);
+    });
+
+    test("should return false as the gametag is less than 8 char", () => {
+        const result = checkGamerTag("aa1a!");
+        expect(result).toBe(false);
+    });
+
+    test("should return true as the gametag has at least 1 special char", () => {
+        const result = checkGamerTag("aaaaaaaaa2!");
+        expect(result).toBe(true);
+    });
+
+    test("should return false as the gametag has no special char", () => {
+        const result = checkGamerTag("aaaaaaaaa2");
+        expect(result).toBe(false);
+    });
+
+    test("should return true as the gametag has at least one number", () => {
+        const result = checkGamerTag("aaaaaaaaa!1");
+        expect(result).toBe(true);
+    });
+
+    test("should return false as the gametag has no number", () => {
+        const result = checkGamerTag("aaaaaaaaa!");
+        expect(result).toBe(false);
+    });
+});
