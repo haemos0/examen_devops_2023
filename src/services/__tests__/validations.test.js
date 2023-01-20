@@ -27,4 +27,14 @@ describe("validations tests suites - checkGamerTag", () => {
         const result = checkGamerTag("aaaaaaa");
         expect(result).toBe(false);
     });
+
+    test("should return true as the gametag has at least 1 special char", () => {
+        const result = checkGamerTag("aaaaaaaaa!");
+        expect(result).toBe(true);
+    });
+
+    test("should return false as the gametag has no special char", () => {
+        const result = checkGamerTag("aaaaaaaaa");
+        expect(result).toBe(false);
+    });
 });
