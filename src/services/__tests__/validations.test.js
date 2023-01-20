@@ -17,4 +17,9 @@ describe("validations tests suites - isEmpty", () => {
     });
 });
 
-// TODO: Create tests suite for validation function
+describe("validations tests suites - checkGamerTag", () => {
+    test("should return false as the gametag is 8 char or more", () => {
+        const result = checkGameTag("aaaaaaaaa");
+        expect(result).toBe(false);
+    });
+});
