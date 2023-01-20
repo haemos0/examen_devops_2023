@@ -1,10 +1,8 @@
 // TODO: Add here the function to validate
 
 const checkGamerTag = (gamerTag) => {
-    const regex = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    const found = gamerTag.match(regex)
     if(gamerTag.length < 8)return false;
-    if(!found)return false;
+    if(!gamerTag.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/))return false;
     if(!gamerTag.match(/[0-9]/))return false;
     return true;
 }
