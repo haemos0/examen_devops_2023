@@ -19,22 +19,32 @@ describe("validations tests suites - isEmpty", () => {
 
 describe("validations tests suites - checkGamerTag", () => {
     test("should return true as the gametag is equals or more than 8 char", () => {
-        const result = checkGamerTag("aaaaaaaaa!");
+        const result = checkGamerTag("aaaaaaaaa2!");
         expect(result).toBe(true);
     });
 
     test("should return false as the gametag is less than 8 char", () => {
-        const result = checkGamerTag("aaaa!");
+        const result = checkGamerTag("aa1a!");
         expect(result).toBe(false);
     });
 
     test("should return true as the gametag has at least 1 special char", () => {
-        const result = checkGamerTag("aaaaaaaaa!");
+        const result = checkGamerTag("aaaaaaaaa2!");
         expect(result).toBe(true);
     });
 
     test("should return false as the gametag has no special char", () => {
-        const result = checkGamerTag("aaaaaaaaa");
+        const result = checkGamerTag("aaaaaaaaa2");
+        expect(result).toBe(false);
+    });
+
+    test("should return true as the gametag has at least one number", () => {
+        const result = checkGamerTag("aaaaaaaaa!1");
+        expect(result).toBe(true);
+    });
+
+    test("should return false as the gametag has no number", () => {
+        const result = checkGamerTag("aaaaaaaaa!");
         expect(result).toBe(false);
     });
 });

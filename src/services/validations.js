@@ -5,6 +5,7 @@ const checkGamerTag = (gamerTag) => {
     const found = gamerTag.match(regex)
     if(gamerTag.length < 8)return false;
     if(!found)return false;
+    if(!gamerTag.match(/[0-9]/))return false;
     return true;
 }
 
